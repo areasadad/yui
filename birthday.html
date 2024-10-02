@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>met ultah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('Haikyuu.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            color: #f3e9bf; /* Warna teks kuning */
+            font-size: 48px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            margin-top: 0;
+            animation: bounce 1s infinite; /* Animasi memantul */
+        }
+
+        p {
+            color: #333;
+            font-size: 24px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 10px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #263b46;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #00a2ff;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .confetti, .balloon {
+            position: absolute;
+            opacity: 0.7;
+        }
+
+        .confetti {
+            width: 10px; height: 10px; border-radius: 50%; 
+            animation: fall 3s forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .balloon {
+            width: 30px; height: 40px; border-radius: 15px 15px 0 0; 
+            animation: pop 0.8s forwards;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Selamat Ulang Tahun broks, <span id="name"></span>!</h1>
+        <p>klik ni tuk harapannya hhe </p>
+
+        <a href="message.html?name=" id="messageLink">Kirim Harapan</a>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        document.getElementById('name').textContent = name ? name : 'Teman';
+        document.getElementById('messageLink').href += encodeURIComponent(name);
+
+        function createElement(type, className, styles) {
+            const element = document.createElement('div');
+            element.className = className;
+            Object.assign(element.style, styles);
+            document.body.appendChild(element);
+            return element;
+        }
+
+        setInterval(() => {
+            createElement('div', 'confetti', {
+                left: Math.random() * 100 + 'vw',
+                top: Math.random() * 100 + 'vh',
+                background: ['red', 'blue', 'green', 'yellow', 'purple', 'orange'][Math.floor(Math.random() * 6)],
+            }).addEventListener('animationend', e => e.target.remove());
+
+            createElement('div', 'balloon', {
+                left: Math.random() * 100 + 'vw',
+                top: Math.random() * 100 + 'vh',
+                background: `hsl(${Math.random() * 360}, 70%, 50%)`,
+            }).addEventListener('animationend', e => e.target.remove());
+        }, 500); // Setiap 0.5 detik
+    </script>
+
+</body>
+</html>

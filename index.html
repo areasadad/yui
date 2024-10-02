@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3ok5</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: url('Anime.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column; /* Mengatur elemen dalam kolom */
+            align-items: center; /* Menyelaraskan elemen ke tengah */
+            justify-content: center; /* Menyelaraskan elemen secara vertikal */
+            height: 100%; /* Menggunakan tinggi penuh dari body */
+        }
+
+        .header {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border: 2px solid #0288d1; /* Border berwarna biru */
+            border-radius: 10px; /* Sudut membulat */
+            padding: 10px; /* Ruang di dalam border */
+            background-color: rgba(255, 255, 255, 0.8); /* Latar belakang putih transparan */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+            display: inline-block; /* Membuat header berperilaku seperti block */
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Efek bayangan di sekitar form */
+            display: inline-block;
+            margin-top: 20px; /* Mengurangi jarak atas */
+            position: relative;
+            z-index: 2;
+        }
+
+        label {
+            font-size: 20px;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #0288d1;
+            outline: none;
+        }
+
+        button {
+            background-color: #0288d1;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0277bd;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">masukin nama yu broks</div>
+
+        <form action="birthday.html" method="GET">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
